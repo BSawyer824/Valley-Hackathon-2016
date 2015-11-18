@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Brandy Sawyer
+    JavaScript 252
+    Homework: Lab 5 - Morse Code Output
+    
+        Script will create an object that has all the dit-dah definitions for each letter of the alphabet.
+        It will then use a loop to look up the dit-dah definition for each letter that the user inputs and display
+        graphically on screen.-->
+        
+<html>
+<head>
+<style>
+body {background-color:lightgrey}
+body {font-family: Calibri}
+h1   {text-align:left}
+h1   {color:purple}
+h1   {font-family: Calibri;}
+p    {color:darkblue}
+p    {font-family: Calibri;}
+</style>
+
+    <meta charset="utf-8" />
+    <title>Input a Word</title>
+
+<script>
+    function svgMod(){ 
+      var circle1 = document.getElementById("circle1"); 
+      circle1.style.fill="blue";
+    } 
+  </script>
+  </head>
+<body>
+<script>
+  function getMorseCode () {
+    var LETTER_TO_MORSE = {
+        A: {first: "dit", second: "dah", third: "", fourth: ""},
+        B: {first: "dah", second: "dit", third: "dit", fourth: "dit"},
+        C: {first: "dah", second: "dit", third: "dah", fourth: "dit"},
+        D: {first: "dah", second: "dit", third: "dit", fourth: ""}
+    };
+    var i = 0;
+    var strWord = document.getelementbyID("myword").value;
+    alert(strWord);
+    for (i = 1; i <= strWord.length; i += 1) {
+      alert(LETTER_TO_MORSE.strWord.CharAt(i).first);
+      alert(LETTER_TO_MORSE.strWord.CharAt(i).second);
+      alert(LETTER_TO_MORSE.strWord.CharAt(i).third);
+      alert(LETTER_TO_MORSE.strWord.CharAt(i).fourth);
+    }
+  }
+
+</script>
+<h1>Morse Code</h1>
+    <p>
+        <input type="text" id="myWord"/>
+        <input type="button" id="displayMorseCode" value="See It!" onclick="getMorseCode()" />
+    </p>
+ <svg id="dot" height="100" width="100">
+  <circle cx="50" cy="50" r="40" stroke="lightgrey" stroke-width="3" fill="pink" />
+  Sorry, your browser does not support inline SVG.  
+</svg>  
+
+
+  
+</body>
+<!--  <svg id="svg1" xmlns="http://www.w3.org/2000/svg" style="width: 3.5in; height: 1in">
+  <circle id="circle1" r="30" cx="34" cy="34" style="fill: red; stroke: blue; stroke-width: 2"/>
+  </svg>
+  <button onclick=circle1.style.fill="yellow";>Click to change to yellow</button>
+  <button onclick=jacascript:svgMod();>Click to change to blue</button>
+  </body>  -->
+  </html>

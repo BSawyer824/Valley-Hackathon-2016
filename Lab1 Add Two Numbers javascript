@@ -1,0 +1,9 @@
+// I had to multiply the variables holding the first and second number by 1 to get the script to treat them as numeric and not text.
+var report = function (finalNumber) {
+    document.getElementById("result").innerHTML = finalNumber;
+};
+document.getElementById("addNumbers").onclick = function () {
+    var firstNum = document.getElementById("firstNumber").value;
+    var secondNum = document.getElementById("secondNumber").value;
+    report(firstNum * 1 + secondNum * 1);
+};

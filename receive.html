@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Receive</title>
+    <link href='orgSignIn.js'>
+    <link href='orgSignUp.js'>
+    <link href='stylesheet1.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+        // show sign-in or sign-up form
+        function selectDiv (divID1, divID2) {
+            var showDiv = document.getElementById(divID1);
+            var hideDiv = document.getElementById(divID2);
+            
+            if(showDiv.style.display == 'none') {
+                showDiv.style.display = 'block';
+                hideDiv.style.display = 'none';
+            }
+            else
+                showDiv.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div id="navBar">
+        <ul>
+            <a href='http://www.codex209.com/~prodapp/home'>
+                <li style="padding-right: 40px;"><img src="cupOfSugarLogo1.jpg" /></li>
+            </a>
+            <li><a href="http://www.codex209.com/~prodapp/js/give.php">Give</a></li>
+            <li><a href="http://www.codex209.com/~prodapp/requests.html">Your Requests</a></li>
+            <li><a href="http://www.codex209.com/~prodapp/signin.html">Sign-in</a></li>
+        </ul>
+    </div>
+    <div class="content" style="padding-top: 100px;">
+        <h3>Already a member? Sign-in!</h3>
+        <center><button onclick="selectDiv ('signInBlock', 'signUpBlock');">Sign in</button></center>
+    </div>
+    <div class="content" id="signInBlock" style="display:none; background-color:#e5ffff;">
+        <form id="orgSignIn" name="orgSignIn" action="js/verifier.php" method="post">
+            <label for="signInEmail">Email</label>
+            <input id="signInEmail" name="signInEmail" type="text" value="janesmith@email.com" required>
+            <br />
+            <label for="signInPassword">Password</label>
+            <input id="signInPassword" name="signInPassword" type="text" value="password" required>
+            <br />
+            <input type="submit" name="submitSignIn" value="Submit">
+        </form>
+    </div>
+    <div class="content">
+        <h3>New to our site? Sign-up!</h3>
+        <center><button onclick="selectDiv ('signUpBlock', 'signInBlock');">Sign up</button></center>
+    </div>
+    <div class="content" id="signUpBlock" style="display:none; background-color:#e5ffff;">
+        <form id="orgSignUp" name="orgSignUp" action="js/insertion.php" method="post">
+            <label for="orgName">Organization Name</label>
+            <input id="orgName" name="orgName" type="text" value="My Organization" required>
+            <br />
+            <label for="contactName">Contact Name</label>
+            <input id="contactName" name="contactName" type="text" value="John Smith" required>
+            <br />
+            <label for="phoneNumber">Phone Number</label>
+            <input id="phoneNumber" name="phoneNumber" type="text" value="888-888-8888" required>
+            <br />
+            <label for="signUpEmail">Email</label>
+            <input id="signUpEmail" name="signUpEmail" type="text" value="johnsmith@email.com" required>
+            <br />
+            <label for="orgAddress1">Street Address</label>
+            <input id="orgAddress1" name="orgAddress1" type="text" value="123 First Street" required>
+            <br />
+            <label for="orgAddress2">Street Address (continued)</label>
+            <input id="orgAddress2" name="orgAddress2" type="text" value="Suite 4">
+            <br />
+            <label for="orgCity">City</label>
+            <input id="orgCity" name="orgCity" type="text" value="Townsville" required>
+            <br />
+            <label for="orgState">State</label>
+            <input id="orgState" name="orgState" type="text" value="CA" required>
+            <br />
+            <label for="orgZipCode">Zip Code</label>
+            <input id="orgZipCode" name="orgZipCode" type="text" maxLength="10" value="88888" required>
+            <br />
+            <label for="orgDescription">Organization Description (optional)</label>
+            <input id="orgDescription" name="orgDescription" type="text" maxlength="250" value="Please describe your organization in 250 characters or less...">
+            <br />
+            <label for="orgTaxID">Tax ID # (optional)</label>
+            <input id="orgTaxID" name="orgTaxID" type="text" value="XX-XXXXXXX">
+            <br />
+            <label for="orgPassword">Password</label>
+            <input id="orgPassword" name="orgPassword" type="text" required>
+            <br />
+            <input type="submit" id="submitSignUp" name="submitSignUp" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

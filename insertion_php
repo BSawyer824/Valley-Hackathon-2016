@@ -1,0 +1,45 @@
+<?php
+$servername = "www.codex209.com";
+$username = "dbuser";
+$password = "dbpassword";
+$dbname = "cupsugar";
+
+$orginName = $_POST["orgName"];
+$contactName = $_POST["contactName"];
+$phoneNumber = $_POST["phoneNumber"];
+$signUpEmail = $_POST["signUpEmail"];
+$orgAddress1 = $_POST["orgAddress1"];
+$orgAddress2 = $_POST["orgAddress2"];
+$orgCity = $_POST["orgCity"];
+$orgState = $_POST["orgState"];
+$orgZipCode = $_POST["orgZipCode"];
+$orgDescription = $_POST["orgDescription"];
+$orgTaxID = $_POST["orgTaxID"];
+$orgPassword = $_POST["orgPassword"];
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "INSERT INTO Organization (name, about, mainContactName, mainPhone, mainEmail, address1, address2, city, state, zip, taxID, password)
+VALUES ('$orginName', '$orgDescription', '$contactName', '$phoneNumber', '$signUpEmail', '$orgAddress1', '$orgAddress2', '$orgCity', '$orgState', '$orgZipCode', '$orgTaxID', '$orgPassword')";
+
+//if ($conn->query($sql) === TRUE) {
+//} else {
+//    echo "Error: " . $sql . "<br>" . $conn->error;
+//}
+if ($conn->query($sql) === TRUE) {
+  header('Location: http://www.codex209.com/~devapp/thanks1.html');
+
+} else {
+  echo "Sign-up was unsuccessful. Please, try again.";
+}
+
+$conn->close();
+
+
+?>

@@ -1,0 +1,79 @@
+<?php
+$servername = "www.codex209.com";
+$username = "dbuser";
+$password = "dbpassword";
+$dbname = "cupsugar";
+$orgName = $_POST["btnOrg"];
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT needs.id, needs.organization_name, needs.needtype, needs.needsubtype, needs.description, needs.deadline, needs.starttime, 
+        needs.numhours, needs.contact_firstname, needs.contact_lastname, needs.phone, needs.email, Organization.name, Organization.about, Organization.mainContactName, Organization.mainPhone,
+        Organization.mainEmail, Organization.address1, Organization.address2, Organization.city, Organization.state, Organization.zip
+        FROM needs INNER JOIN Organization ON needs.organization_name=Organization.name 
+        AND organization_name = '$orgName' 
+        ORDER BY id DESC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  //the first echo statement embeds the style of the HTML page
+    echo "<html><head>    
+    <meta charset='UTF-8'>
+    <link href='../stylesheet1.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <Title>Give a Cup of Sugar</Title></head><body>
+    <div id='navBar'><ul><a href='../home'>
+    <li style='padding-right: 40px;'><img src='../cupOfSugarLogo1.jpg' /></li></a>
+    <li><a href='give.php'>Give</a></li><li><a href='../requests.html'>Your Requests</a></li>
+    <li><a href='http://www.codex209.com/~prodapp/signin.html'>Sign-in</a></li></ul>
+    </div>
+    <style>label.thick {font-weight: bold;} form {border: 1px solid black; padding: 5px; 
+    background-color:#e5ffff; margin-right:25px; margin-left:25px;} div {margin-top:75px;}
+    h1 {color: #ff7f50;text-align: center; padding-left: 25px; padding-right: 20px; padding-top: 5px;}</style>
+    <div></div>
+    <h1 >$orgName</h1>
+      <form name='".$row["needs.id"]."orgSummary'>
+        <label name='".$row["needs.id"]."about'>".$row["about"]."</label>
+        <br />
+        <label name='".$row["needs.id"]."mainContactName'>Main Contact:  ".$row["mainContactName"]."</label>
+        <br />
+        <label name='".$row["needs.id"]."mainEmail'>Main Email: ".$row["mainEmail"]."</label>
+        <br />
+        <label name='".$row["needs.id"]."mainPhone'>Main Phone: ".$row["mainPhone"]."</label>
+        <br />
+        <label name='".$row["needs.id"]."address'>".$row["address1"]." ".$row["address2"]." ".$row["city"].", ".$row["state"].". ".$row["zip"]." </label>
+        <br />
+      </form>   
+    <h1 >Available Requests</h1>";
+    // output data of each row - Displays each current request in their own form box, with options to click buttons to see
+    //more detail
+    while($row = $result->fetch_assoc()) {
+        echo "<form name='".$row["needs.id"]."needresults'>
+            <label class='thick' name='".$row["needs.id"]."orgName'>Organization Name: ".$row["organization_name"]."</label>
+            <br />
+            <label name='".$row["needs.id"]."needtype'>Request Type: ".$row["needtype"]."</label>
+            <label name='".$row["needs.id"]."needsupbtype'> / ".$row["needsubtype"]."</label>
+            <br />
+            <label name='".$row["needs.id"]."deadline'>Date / Deadline: ".$row["deadline"]."</label>
+            <br />
+            <label name='".$row["needs.id"]."description'>Details: ".$row["description"]."</label>
+            <br />
+            <label name='".$row["needs.id"]."firstname'>Contact: ".$row["contact_firstname"]."</label>
+            <label name='".$row["needs.id"]."lastname'> ".$row["contact_lastname"]."</label>
+            <br />
+            <label name='".$row["needs.id"]."email'>E-Mail: ".$row["email"]."</label>
+            <label name='".$row["needs.id"]."phone'>     Phone: ".$row["phone"]."</label>
+            </form>";
+    }
+} else {
+    echo "0 results";
+}
+echo "<p2>**All listed requests are Demonstration Data only</p2>";
+$conn->close();
+?>

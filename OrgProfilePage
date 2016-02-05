@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Request a Cup</title>
+    <link href='stylesheet1.css' rel='stylesheet'>
+    <link href='js/insertion.php'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+        // function to show/hide div element
+        function toggleDiv(divID) {
+            var myDiv = document.getElementById(divID);
+            
+            if(myDiv.style.display == 'none')
+                myDiv.style.display = 'block';
+            else
+                myDiv.style.display = 'none';
+        }
+        // show and hide divs based on radio selection
+        function hideGoods() {
+            document.getElementById("goodsBlock").style.visibility = "hidden";
+            document.getElementById("servicesBlock").style.visibility = "visible";
+        }
+        function hideServices() {
+            document.getElementById("servicesBlock").style.visibility = "hidden";
+            document.getElementById("goodsBlock").style.visibility = "visible";
+        }
+    </script>
+</head>
+<body>
+    <div id="navBar">
+        <ul>
+            <a href='http://www.codex209.com/~prodapp/home'>
+                <li style="padding-right: 40px;"><img src="cupOfSugarLogo1.jpg" /></li>
+            </a>
+            <li><a href="http://www.codex209.com/~prodapp/js/give.php">Give</a></li>
+            <li><a href="http://www.codex209.com/~prodapp/requests.html">Your Requests</a></li>
+            <li><a href="http://www.codex209.com/~prodapp/signin.html">Sign-in</a></li>
+        </ul>
+    </div>
+    <div class="floatingBox">
+        <p>Organization: ABC Test Corp</p>
+        <p>Contact: Brandy Sawyer</p>
+        <p>Email: awesome@winning.com</p>
+    </div>
+    <div class="afterBox">
+        <h3>Hello ABC Test Corp</h3>
+        <button onclick="toggleDiv('requestBlock');">Get some sugar</button>
+        <br /><br />
+        <div class="boxContent" id='requestBlock' style="display: none;">
+                <form id="needForm" name="needForm" action="js/insertneed.php" method="post">
+                    <label for="goodsOrServices">Are you in need of goods or services?</label>
+                    <input name="goodsOrServices" type="radio" onclick="hideServices()" value="Goods" checked>Goods
+                    <input name="goodsOrServices" type="radio" onclick="hideGoods()" value="Services">Services
+                    <br /><br />
+                    <div id='goodsBlock' style="position: absolute;">
+                        <label for="goodsType">Type of Goods</label>
+                        <select name="goodsType" id="goodsType" required>
+                            <option value="food">Food</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="bedding">Bedding</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="appliance">Appliance</option>
+                            <option value="vehicle">Vehicle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div id='servicesBlock' style="position: absolute; visibility: hidden;">
+                    <label for="servicesType">Type of Service</label>
+                        <select name="servicesType" id="servicesType" required>
+                            <option value="education">Education</option>
+                            <option value="medical services">Medical Services</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="labor">Labor</option>
+                            <option value="child care">Child Care</option>
+                           <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <br /><br /><br /><br />
+                    <label for="needQuantity">Quantity or Number of Volunteers</label>
+                    <input id="needQuantity" name="needQuantity" type="number" required>
+                    <br />
+                    <label for="needDate">Date Needed</label>
+                    <input id="needDate" name="needDate" type="date" required>
+                    <br />
+                    <label for="needTime">Time Needed (optional)</label>
+                    <input id="needTime" name="needTime" type="text">
+                    <br />
+                    <label for="needInfo">Additional Information (optional)</label>
+                    <input id="needInfo" name="needInfo" type="text" maxlength="250" value="Please describe in 250 characters or less...">
+                    <br />
+                    <label for="needContactName">Contact Name</label>
+                    <input id="needContactName" name="needContactName" type="text" required>
+                    <br />
+                    <label for="needContactEmail">Contact Email</label>
+                    <input id="needContactEmail" name="needContactEmail" type="text" required>
+                    <br />
+                    <input type="submit" name="submitNeedForm" value="Submit">
+                </form>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,152 @@
+<html><head>    
+    <meta charset='UTF-8'>
+    <link href='../stylesheet1.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <Title>Give a Cup</Title></head><body>
+    <div id='navBar'><ul><a href='../home'>
+    <li style='padding-right: 40px;'><img src='../cupOfSugarLogo1.jpg' /></li></a>
+    <li><a href='give.php'>Give</a></li><li><a href='../requests.html'>Your Requests</a></li>
+    <li><a href='http://www.codex209.com/~prodapp/signin.html'>Sign-in</a></li></ul>
+    </div>
+    <style>label.thick {font-weight: bold;} form {border: 1px solid black; padding: 5px; 
+    background-color:#e5ffff; margin-right:25px; margin-left:25px;} div {margin-top:75px;}
+    h1 {color: #ff7f50;text-align: center; padding-left: 25px; padding-right: 20px; padding-top: 5px;}</style>
+    <div></div>
+    <h3 >Give</h3>
+    <h6>Meet needs in your Community</h6><form name='36needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='36orgName'>Organization Name: Hoggwarts</label>
+            <br />
+            <label name='36needtype'>Request Type: Services</label>
+            <label name='36needsupbtype'> / education</label>
+            <br />
+            <label name='36deadline'>Date / Deadline: </label>
+            <br />
+            <label name='36description'>Details: Please describe in 250 characters or less...</label>
+            <br />
+            <label name='36firstname'>Contact: Heather</label>
+            <label name='36lastname'> </label>
+            <br />
+            <label name='36email'>E-Mail: test@gmail.com</label>
+            <label name='36phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='Hoggwarts'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><form name='35needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='35orgName'>Organization Name: ABC Test Corp</label>
+            <br />
+            <label name='35needtype'>Request Type: Services</label>
+            <label name='35needsupbtype'> / education</label>
+            <br />
+            <label name='35deadline'>Date / Deadline: </label>
+            <br />
+            <label name='35description'>Details: Please describe in 250 characters or less...</label>
+            <br />
+            <label name='35firstname'>Contact: Hagrid</label>
+            <label name='35lastname'> </label>
+            <br />
+            <label name='35email'>E-Mail: awesome@winning.com</label>
+            <label name='35phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='ABC Test Corp'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><form name='34needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='34orgName'>Organization Name: ABC Test Corp</label>
+            <br />
+            <label name='34needtype'>Request Type: Services</label>
+            <label name='34needsupbtype'> / transportation</label>
+            <br />
+            <label name='34deadline'>Date / Deadline: </label>
+            <br />
+            <label name='34description'>Details: Please describe in 250 characters or less...</label>
+            <br />
+            <label name='34firstname'>Contact: brandy</label>
+            <label name='34lastname'> </label>
+            <br />
+            <label name='34email'>E-Mail: lkjdsfa ;l</label>
+            <label name='34phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='ABC Test Corp'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><form name='33needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='33orgName'>Organization Name: ABC Test Corp</label>
+            <br />
+            <label name='33needtype'>Request Type: Services</label>
+            <label name='33needsupbtype'> / education</label>
+            <br />
+            <label name='33deadline'>Date / Deadline: </label>
+            <br />
+            <label name='33description'>Details: Help</label>
+            <br />
+            <label name='33firstname'>Contact: Brandy</label>
+            <label name='33lastname'> </label>
+            <br />
+            <label name='33email'>E-Mail: Sawyer.awesome@gmail.com</label>
+            <label name='33phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='ABC Test Corp'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><form name='32needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='32orgName'>Organization Name: ABC Test Corp</label>
+            <br />
+            <label name='32needtype'>Request Type: Services</label>
+            <label name='32needsupbtype'> / education</label>
+            <br />
+            <label name='32deadline'>Date / Deadline: </label>
+            <br />
+            <label name='32description'>Details: teaching computers to kids</label>
+            <br />
+            <label name='32firstname'>Contact: brandy</label>
+            <label name='32lastname'> </label>
+            <br />
+            <label name='32email'>E-Mail: awesome@winning.com</label>
+            <label name='32phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='ABC Test Corp'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><form name='31needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='31orgName'>Organization Name: Hoggwarts</label>
+            <br />
+            <label name='31needtype'>Request Type: Services</label>
+            <label name='31needsupbtype'> / education</label>
+            <br />
+            <label name='31deadline'>Date / Deadline: </label>
+            <br />
+            <label name='31description'>Details: Warm coats needed for the cold winter weather</label>
+            <br />
+            <label name='31firstname'>Contact: Butters</label>
+            <label name='31lastname'> </label>
+            <br />
+            <label name='31email'>E-Mail: south@park.com</label>
+            <label name='31phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='Hoggwarts'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><form name='30needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='30orgName'>Organization Name: Hoggwarts</label>
+            <br />
+            <label name='30needtype'>Request Type: Services</label>
+            <label name='30needsupbtype'> / education</label>
+            <br />
+            <label name='30deadline'>Date / Deadline: </label>
+            <br />
+            <label name='30description'>Details: Need someone to volunteer to drive those who cant drive to their doctors appointments</label>
+            <br />
+            <label name='30firstname'>Contact: Hagrid</label>
+            <label name='30lastname'> </label>
+            <br />
+            <label name='30email'>E-Mail: fairytales@yahoo.com</label>
+            <label name='30phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='Hoggwarts'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><form name='29needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='29orgName'>Organization Name: Hoggwarts</label>
+            <br />
+            <label name='29needtype'>Request Type: Services</label>
+            <label name='29needsupbtype'> / education</label>
+            <br />
+            <label name='29deadline'>Date / Deadline: </label>
+            <br />
+            <label name='29description'>Details: Need someone to volunteer to drive those who cant drive to their doctors appointments</label>
+            <br />
+            <label name='29firstname'>Contact: Hagrid</label>
+            <label name='29lastname'> </label>
+            <br />
+            <label name='29email'>E-Mail: fairytales@yahoo.com</label>
+            <label name='29phone'>     Phone: 5555555555</label>
+            <input type='hidden'  name='btnOrg' value='Hoggwarts'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form><p2>**All listed requests are Demonstration Data only</p2>

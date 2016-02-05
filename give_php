@@ -1,0 +1,65 @@
+<?php
+$servername = "www.codex209.com";
+$username = "dbuser";
+$password = "dbpassword";
+$dbname = "cupsugar";
+$orgName = $_POST["signInEmail"];
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT id, organization_name, needtype, needsubtype, description, deadline, starttime, 
+        numhours, contact_firstname, contact_lastname, phone, email FROM needs ORDER BY id DESC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  //the first echo statement embeds the style of the HTML page
+    echo "<html><head>    
+    <meta charset='UTF-8'>
+    <link href='../stylesheet1.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <Title>Give a Cup</Title></head><body>
+    <div id='navBar'><ul><a href='../home'>
+    <li style='padding-right: 40px;'><img src='../cupOfSugarLogo1.jpg' /></li></a>
+    <li><a href='give.php'>Give</a></li><li><a href='../requests.html'>Your Requests</a></li>
+    <li><a href='http://www.codex209.com/~prodapp/signin.html'>Sign-in</a></li></ul>
+    </div>
+    <style>label.thick {font-weight: bold;} form {border: 1px solid black; padding: 5px; 
+    background-color:#e5ffff; margin-right:25px; margin-left:25px;} div {margin-top:75px;}
+    h1 {color: #ff7f50;text-align: center; padding-left: 25px; padding-right: 20px; padding-top: 5px;}</style>
+    <div></div>
+    <h3 >Give</h3>
+    <h6>Meet needs in your Community</h6>";
+    // output data of each row - Displays each current request in their own form box, with options to click buttons to see
+    //more detail
+    while($row = $result->fetch_assoc()) {
+        echo "<form name='".$row["id"]."needresults' action='pullOrg.php' method='post'>
+            <label class='thick' name='".$row["id"]."orgName'>Organization Name: ".$row["organization_name"]."</label>
+            <br />
+            <label name='".$row["id"]."needtype'>Request Type: ".$row["needtype"]."</label>
+            <label name='".$row["id"]."needsupbtype'> / ".$row["needsubtype"]."</label>
+            <br />
+            <label name='".$row["id"]."deadline'>Date / Deadline: ".$row["deadline"]."</label>
+            <br />
+            <label name='".$row["id"]."description'>Details: ".$row["description"]."</label>
+            <br />
+            <label name='".$row["id"]."firstname'>Contact: ".$row["contact_firstname"]."</label>
+            <label name='".$row["id"]."lastname'> ".$row["contact_lastname"]."</label>
+            <br />
+            <label name='".$row["id"]."email'>E-Mail: ".$row["email"]."</label>
+            <label name='".$row["id"]."phone'>     Phone: ".$row["phone"]."</label>
+            <input type='hidden'  name='btnOrg' value='".$row["organization_name"]."'>
+            <input type='submit' name='btnGO' value='More Requests'>
+            </form>";
+    }
+} else {
+    echo "0 results";
+}
+echo "<p2>**All listed requests are Demonstration Data only</p2>";
+$conn->close();
+?>
